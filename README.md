@@ -24,5 +24,7 @@
     * Link: Video by **[Curtis Adams](https://www.pexels.com/@curtis-adams-1694007?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexels)** from **[Pexels](https://www.pexels.com/photo/a-man-training-a-woman-in-boxing-3444517/?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexels)**.
   * `chess.mp4`: 
     * Link: https://www.pexels.com/video/queen-check-in-chess-855386/.
-* 
+  * `boxing1.mp4`: 
+    * Link: https://www.youtube.com/watch?v=3kR-w73tUWg.
+  * 
 
