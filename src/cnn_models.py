@@ -1,6 +1,10 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
+import joblib
+
+# load the binarized labels file
+lb = joblib.load('../outputs/lb.pkl')
 
 class CustomCNN(nn.Module):
     def __init__(self):
@@ -11,7 +15,7 @@ class CustomCNN(nn.Module):
         self.conv4 = nn.Conv2d(64, 128, 5)
 
         self.fc1 = nn.Linear(128, 256)
-        self.fc2 = nn.Linear(256, 3)
+        self.fc2 = nn.Linear(256, len(lb.classes_))
 
         self.pool = nn.MaxPool2d(2, 2)
 

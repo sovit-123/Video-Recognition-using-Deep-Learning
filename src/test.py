@@ -1,6 +1,6 @@
 '''
 USAGE:
-python test.py --model ../outputs/sports.pth --label-bin ../outputs/lb.pkl --input ../input/example_clips/lifting.mp4 --output ../outputs/lifting.mp4
+python test.py --model ../outputs/sports.pth --label-bin ../outputs/lb.pkl --input ../input/example_clips/chess.mp4 --output ../outputs/chess.mp4
 '''
 
 import torch
@@ -16,7 +16,7 @@ import albumentations
 
 from torchvision.transforms import transforms   
 from torch.utils.data import Dataset, DataLoader
-from torchvision import models as models
+from PIL import Image
 
 # construct the argument parser
 ap = argparse.ArgumentParser()
@@ -64,19 +64,20 @@ while(cap.isOpened()):
     if ret == True:
         model.eval()
         with torch.no_grad():
-            image = frame
-            image = aug(image=np.array(image))['image']
-            image = np.transpose(image, (2, 0, 1)).astype(np.float32)
-            image = torch.tensor(image, dtype=torch.float).cuda()
-            image = image.unsqueeze(0)
+            # conver to PIL RGB format before predictions
+            pil_image = Image.fromarray(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB))
+            pil_image = aug(image=np.array(pil_image))['image']
+            pil_image = np.transpose(pil_image, (2, 0, 1)).astype(np.float32)
+            pil_image = torch.tensor(pil_image, dtype=torch.float).cuda()
+            pil_image = pil_image.unsqueeze(0)
             
-            outputs = model(image)
-            print(outputs)
+            outputs = model(pil_image)
+            # print(outputs)
             _, preds = torch.max(outputs.data, 1)
-            print('PREDS', preds)
-            print(f"Predicted output: {lb.classes_[preds]}")
+            # print('PREDS', preds)
+            # print(f"Predicted output: {lb.classes_[preds]}")
         
-        cv2.putText(frame, lb.classes_[preds], (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (0, 0, 255), 2)
+        cv2.putText(frame, lb.classes_[preds], (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (0, 200, 0), 2)
         cv2.imshow('image', frame)
         out.write(frame)
 

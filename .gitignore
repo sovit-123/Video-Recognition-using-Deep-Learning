@@ -135,4 +135,3 @@ input/
 *.csv
 *.h5
 *.pkl
-*.pth

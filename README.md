@@ -17,4 +17,12 @@
 * [UCF101: A Dataset of 101 Human Actions Classes From Videos in The Wild](https://arxiv.org/pdf/1212.0402.pdf), **Khurram Soomro, Amir Roshan Zamir and Mubarak Shah**.
 * [DELVING DEEPER INTO CONVOLUTIONAL NETWORKS FOR LEARNING VIDEO REPRESENTATIONS](https://arxiv.org/pdf/1511.06432v4.pdf)
 * [DEEP MULTI-SCALE VIDEO PREDICTION BEYOND MEAN SQUARE ](https://arxiv.org/pdf/1511.05440v6.pdf)
+* Citations:
+  * `basketball.mp4`:
+    * Link: https://www.pexels.com/video/athletes-warming-up-1585619/.
+  * `boxing.mp4`: Video by **[Curtis Adams](https://www.pexels.com/@curtis-adams-1694007?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexels)** from **[Pexels](https://www.pexels.com/photo/a-man-training-a-woman-in-boxing-3444517/?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexels)**.
+    * Link: Video by **[Curtis Adams](https://www.pexels.com/@curtis-adams-1694007?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexels)** from **[Pexels](https://www.pexels.com/photo/a-man-training-a-woman-in-boxing-3444517/?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexels)**.
+  * `chess.mp4`: 
+    * Link: https://www.pexels.com/video/queen-check-in-chess-855386/.
+* 
 
