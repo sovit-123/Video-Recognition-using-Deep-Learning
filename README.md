@@ -60,6 +60,8 @@
 
 ## <u>Results</u>
 
+* ![Example Image Result](https://github.com/sovit-123/Video-Recognition-using-Deep-Learning/blob/master/outputs/example_image.PNG?raw=true)
+
 * **Accuracy Plot**
 
   ![accuracy.png](https://github.com/sovit-123/Video-Recognition-using-Deep-Learning/blob/master/outputs/accuracy.png?raw=true)
