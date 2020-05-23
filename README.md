@@ -7,6 +7,10 @@
 ## <u>Project Structure</u>
 
 * The data goes inside the `input` folder. **Get the [data](https://drive.google.com/file/d/107w498Ahs7hxuCAd8tEX0u33OQUYWq4Y/view) from [here](https://drive.google.com/file/d/107w498Ahs7hxuCAd8tEX0u33OQUYWq4Y/view)**.
+* Get test video clips from these links (These videos will remain inside the `input/example_clips/`):
+  * `basketball.mp4` [**video**](https://www.pexels.com/video/athletes-warming-up-1585619/).
+  * `boxing1.mp4` video: **[Best Knockouts and Funny Moments in Boxing](https://www.youtube.com/watch?v=3kR-w73tUWg)**.
+  * `chess.mp4` **[video](https://www.pexels.com/video/queen-check-in-chess-855386/)**.
 
 ```
 ├───input
@@ -39,19 +43,22 @@
   - `test.py`: This python file is for testing on the trained neural network model on the `example_clips` videos.
 * To create the `data.csv` file, run the `prepare_data.py` script inside the `src` folder.
 
-
-
 * ***Note:*** The trained mode, that is, `model.pth` inside the `outputs` folder in this repository has been trained on `basketball`,  `boxing`, and `chess` data. You can easily generate the `data.csv` file for other images as well. 
   * *Take a look inside the `prepare_data.py` script. Just add more image folder names to the `create_labels` list and execute the script.*
   * *Then run `train.py` to train on those image data as well.*  
 
+### Running Predictions on Real-Time Video Files
+
+1. Clone the repo.
+2. Open terminal in the repo directory. `cd` into the `src` folder.
+3. Run either of the three:
+   * `python test.py --model ../outputs/sports.pth --label-bin ../outputs/lb.pkl --input ../input/example_clips/chess.mp4 --output ../outputs/chess.mp4`
+   * `python test.py --model ../outputs/sports.pth --label-bin ../outputs/lb.pkl --input ../input/example_clips/boxing1.mp4 --output ../outputs/boxing1.mp4`
+   * `python test.py --model ../outputs/sports.pth --label-bin ../outputs/lb.pkl --input ../input/example_clips/baskteball.mp4 --output ../outputs/basketball.mp4`
+
 
 
 ## <u>Results</u>
-
-* <iframe width="766" height="431" src=""
-  frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope;
-  picture-in-picture" allowfullscreen></iframe>
 
 * **Accuracy Plot**
 
