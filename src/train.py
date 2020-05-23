@@ -1,6 +1,6 @@
 '''
 USAGE:
-python train.py --dataset ../input/data --model ../outputs/sports.pth --epochs 50
+python train.py --model ../outputs/sports.pth --epochs 75
 '''
 
 import torch
@@ -11,7 +11,6 @@ import numpy as np
 import joblib
 import albumentations
 import torch.optim as optim
-import random
 import os
 import cnn_models
 import matplotlib
@@ -30,12 +29,10 @@ from PIL import Image
 
 # construct the argument parser
 ap = argparse.ArgumentParser()
-ap.add_argument("-d", "--dataset", required=True,
-	help="path to input dataset")
-ap.add_argument("-m", "--model", required=True,
-	help="path to output serialized model")
-ap.add_argument("-e", "--epochs", type=int, default=25,
-	help="# of epochs to train our network for")
+ap.add_argument('-m', '--model', required=True,
+	help='path to save the trained model')
+ap.add_argument('-e', '--epochs', type=int, default=25,
+	help='number of epochs to train our network for')
 args = vars(ap.parse_args())
 
 # learning_parameters 
@@ -151,11 +148,8 @@ def fit(model, train_dataloader):
     train_running_correct = 0
     for i, data in tqdm(enumerate(train_dataloader), total=int(len(train_data)/train_dataloader.batch_size)):
         data, target = data[0].to(device), data[1].to(device)
-        # print(data)
         optimizer.zero_grad()
         outputs = model(data)
-        # print(outputs)
-        # print(torch.max(target, 1)[1])
         loss = criterion(outputs, target)
         train_running_loss += loss.item()
         _, preds = torch.max(outputs.data, 1)
@@ -208,7 +202,7 @@ plt.savefig('../outputs/loss.png')
 plt.show()
 	
 # serialize the model to disk
-print("Saving model...")
-torch.save(model.state_dict(), args["model"])
+print('Saving model...')
+torch.save(model.state_dict(), args['model'])
  
 print('TRAINING COMPLETE')

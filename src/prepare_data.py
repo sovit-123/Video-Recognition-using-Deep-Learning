@@ -29,7 +29,6 @@ for i, folder_path in tqdm(enumerate(folder_paths), total=len(folder_paths)):
     label = folder_path
     # save image paths in the DataFrame
     for image_path in image_paths:
-        # print('../input/data/' + folder_path + '/' + image_path)
         if image_path.split('.')[-1] in image_formats:
             data.loc[counter, 'image_path'] = f"../input/data/{folder_path}/{image_path}"
             labels.append(label)

@@ -2,7 +2,55 @@
 
 
 
+
+
+## <u>Project Structure</u>
+
+* The data goes inside the `input` folder. **Get the [data](https://drive.google.com/file/d/107w498Ahs7hxuCAd8tEX0u33OQUYWq4Y/view) from [here](https://drive.google.com/file/d/107w498Ahs7hxuCAd8tEX0u33OQUYWq4Y/view)**.
+
+```
+├───input
+│   ├───data
+│   │   ├───badminton
+│   │   ├───baseball
+│   │   ├───basketball
+│   │   ├───boxing
+│   │   ...
+│   └───example_clips
+│           basketball.mp4
+│           boxing1.mp4
+│           chess.mp4
+|    |   data.csv 
+├───outputs
+└───src
+    │   cnn_models.py
+    │   prepare_data.py
+    │   test.py
+    │   train.py
+```
+
+* You can extract the `data.zip` file inside the `input` folder and you will get all the subfolders containing the sports images according to the categories.
+* `input` folder also contains the `example_clips` subfolder that contains the short video clips that we will test our trained deep learning model on.
+* `outputs` folder will contain all the output files. These include the loss and accuracy graph plots, the trained model, and some other files that we will discover as we move further.
+* `src` contains all the python scripts.
+  - `prepare_data.py`: To prepare the dataset for the training images and the `data.csv` file.
+  - `cnn_models.py`: Contains the neural network model.
+  - `train.py`: Contains the training and validation scripts.
+  - `test.py`: This python file is for testing on the trained neural network model on the `example_clips` videos.
+
+
+
+* ***Note:*** The trained mode, that is, `model.pth` inside the `outputs` folder in this repository has been trained on `basketball`,  `boxing`, and `chess` data. You can easily generate the `data.csv` file for other images as well. 
+  * *Take a look inside the `prepare_data.py` script. Just add more image folder names to the `create_labels` list and execute the script.*
+  * *Then run `train.py` to train on those image data as well.*  
+
+
+
 ## <u>References</u>
+
+* Drawn inspiration from [this](https://www.pyimagesearch.com/2019/07/15/video-classification-with-keras-and-deep-learning/) post by Adrian Rosebrock on [PyImageSearch](https://www.pyimagesearch.com/).
+  * The original post used Keras and ResNet-50 transfer learning.
+  * **I have used PyTorch, and a custom CNN deep learning model. Take a look at `cnn_models.py` inside `src` folder to get more insights.**
 
 * [Retrieving actions in movies](http://www.irisa.fr/vista/Papers/2007_iccv_laptev.pdf), **Ivan Laptev and Patrick Perez**.
 * [Learning realistic human actions from movies](https://www.irisa.fr/vista/Papers/2008_cvpr_laptev.pdf), **Laptev et al**.
@@ -17,11 +65,9 @@
 * [UCF101: A Dataset of 101 Human Actions Classes From Videos in The Wild](https://arxiv.org/pdf/1212.0402.pdf), **Khurram Soomro, Amir Roshan Zamir and Mubarak Shah**.
 * [DELVING DEEPER INTO CONVOLUTIONAL NETWORKS FOR LEARNING VIDEO REPRESENTATIONS](https://arxiv.org/pdf/1511.06432v4.pdf)
 * [DEEP MULTI-SCALE VIDEO PREDICTION BEYOND MEAN SQUARE ](https://arxiv.org/pdf/1511.05440v6.pdf)
-* Citations:
+* Credits:
   * `basketball.mp4`:
     * Link: https://www.pexels.com/video/athletes-warming-up-1585619/.
-  * `boxing.mp4`: Video by **[Curtis Adams](https://www.pexels.com/@curtis-adams-1694007?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexels)** from **[Pexels](https://www.pexels.com/photo/a-man-training-a-woman-in-boxing-3444517/?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexels)**.
-    * Link: Video by **[Curtis Adams](https://www.pexels.com/@curtis-adams-1694007?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexels)** from **[Pexels](https://www.pexels.com/photo/a-man-training-a-woman-in-boxing-3444517/?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexels)**.
   * `chess.mp4`: 
     * Link: https://www.pexels.com/video/queen-check-in-chess-855386/.
   * `boxing1.mp4`: 
